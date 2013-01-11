@@ -1,0 +1,63 @@
+<p id="notice"><%= notice %></p>
+
+
+<h1 style="color:violet; font-size:20px; font-family:Tahoma">Are you looking for a place?</h1>
+
+<%= form_for :search, html: {method: 'get'} do |f| %>
+<p style="color:blue; font-size:18px; font-family:Tahoma">
+  <%= f.label :q, "Name search" %>
+  <%= f.text_field :q, first_name: :q, value: params[:q] %>
+  <%= f.button 'Go' %>
+</p>  
+<% end %>
+
+<h1 style="color:violet; font-size:20px; font-family:Tahoma">Or are you looking for an event?</h1>
+
+<%= form_for :search, html: {method: 'get'} do |f| %>
+<p style="color:blue; font-size:18px; font-family:Tahoma">
+  <%= f.label :q, "Event search" %>
+  <%= f.text_field :q, activity_name: :q, value: params[:q] %>
+  <%= f.button 'Go' %>
+</p>  
+<% end %>
+<!-- comment for html -->
+
+  
+<%# comment for erb (source source) -%>  
+
+<%- if @people.present? %>
+  <table>
+  <tr>
+    <th>Name</th>
+    <th> </th>
+    <th>Birth date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @people.each do |person| %>
+  <tr style="color:blue; font-size:18px; font-family:Tahoma">
+    <td><%= person.first_name %></td>
+    <td><%= person.last_name %></td>
+    <td><%= link_to 'Show', Person %></td>
+    <td><%= link_to 'Edit', edit_person_path(Person) %></td>
+    <td><%= link_to 'Destroy', Person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<%- elsif params[:q].present? %>
+
+<h2 style="color:red; font-size:24px; font-family:Tahoma">Everybody is looking for somebody... but the person you're looking for isn't one of us.</h2>
+
+<%- else %>
+
+<h2 style="color:blue; font-size:18px; font-family:Tahoma">Everybody is looking for somebody... but the person you're looking for isn't one of us.</h2>
+  <td><%= link_to 'Add someone', edit_person_path(Person) %></td>
+
+ </p>
+ <%- end %>
+  
+<%= link_to 'Back', people_path %>
+

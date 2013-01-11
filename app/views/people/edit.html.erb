@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1 style="color: blue; font-size:16px"> Update or Add a Family Member's Information </h1>
+
+<%= form_for @person do |f| %>
+<p style="color: blue">
+  <%= f.label :q, "First name:" %>
+  <%= f.text_field :q, first_name: :q, value: params[:q] %>
+  <%= f.button 'Go' %>
+</p>
+
+<p style="color: blue">
+  <%= f.label :r, "Middle Name: %>
+  <%= f.text_field :r, middle_name: :r, value: params[:r] %>
+  <%= f.button 'Go' %>
+</p>    
+
+<p style="color: blue">
+  <%= f.label :s, "Last Name: %>
+  <%= f.text_field :s, last_name: :s, value: params[:s] %>
+  <%= f.button 'Go' %>
+</p>    
+
+<p style="color: blue">
+  <%= f.label :q, "Birthdate:" %>
+  <%= f.text_field :t, birth_date: :t, value: params[:t] %>
+  <%= f.button 'Go' %>
+</p>  
+
+<p style="color: blue">
+  <%= f.label :u, "Email address: %>
+  <%= f.text_field :u, email_address: :u, value: params[:u] %>
+  <%= f.button 'Go' %>
+</p>    
+
+<p style="color: blue">
+  <%= f.label :v, "Phone number:" %>
+  <%= f.text_field :v, phone_number: :v, value: params[:v] %>
+  <%= f.button 'Go' %>
+</p>  
+
+<% end %>
+
+<%= link_to 'search', search_people_path %>
+<%= link_to 'Back', people_path %>
