@@ -11,6 +11,36 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20130113140307) do
+
+  create_table "activities", :force => true do |t|
+    t.integer "person_id", :null => false
+    t.integer "event_id",  :null => false
+    t.text    "notes"
+  end
+
+  add_index "activities", ["person_id", "event_id"], :name => "index_activities_on_person_id_and_event_id", :unique => true
+
+  create_table "events", :force => true do |t|
+    t.string "name",     :null => false
+    t.string "location"
+    t.date   "date"
+    t.time   "time"
+    t.string "repeat"
+  end
+
+  add_index "events", ["date"], :name => "index_events_on_date"
+  add_index "events", ["name"], :name => "index_events_on_name"
+
+  create_table "people", :force => true do |t|
+    t.string  "first_name",    :null => false
+    t.string  "middle_name"
+    t.string  "last_name"
+    t.date    "birth_date"
+    t.string  "email_address"
+    t.integer "phone_number"
+  end
+
+  add_index "people", ["first_name"], :name => "index_people_on_first_name"
 
 end
