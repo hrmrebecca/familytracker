@@ -54,10 +54,10 @@
 <%- else %>
 
 <h2 style="color:blue; font-size:18px; font-family:Tahoma">Everybody is looking for somebody... but the person you're looking for isn't one of us.</h2>
-  <td><%= link_to 'Add someone', edit_person_path(Person) %></td>
+  <td><%= link_to 'Add someone', new_person_path %></td>
 
  </p>
  <%- end %>
   
-<%= link_to 'Back', people_path %>
+<%= link_to 'Back', root_path %>
 

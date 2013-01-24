@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1 style="color: green; font-size:16px"> Add a family member </h1>
+
+<%= form_for :new, html: {method: 'get'} do |f| %>
+<p style="color: blue">
+  <%= f.label :q, "First name:" %>
+  <%= f.text_field :q, first_name: :q, value: params[:q] %>
+</p>
+
+<p style="color: blue">
+  <%= f.label :r, "Middle Name:" %>
+  <%= f.text_field :r, middle_name: :r, value: params[:r] %>
+</p>    
+
+<p style="color: blue">
+  <%= f.label :s, "Last Name:" %>
+  <%= f.text_field :s, last_name: :s, value: params[:s] %>
+</p>    
+
+<p style="color: blue">
+  <%= f.label :q, "Birthdate:" %>
+  <%= f.text_field :t, birth_date: :t, value: params[:t] %>
+</p>  
+
+<p style="color: blue">
+  <%= f.label :u, "Email address:" %>
+  <%= f.text_field :u, email_address: :u, value: params[:u] %>
+</p>    
+
+<p style="color: blue">
+  <%= f.label :v, "Phone number:" %>
+  <%= f.text_field :v, phone_number: :v, value: params[:v] %>
+</p>  
+
+  <%= f.button 'SAVE' %>
+
+<% end %>
+
+<%= link_to 'search', search_people_path %>
+<%= link_to 'Back', people_path %>
